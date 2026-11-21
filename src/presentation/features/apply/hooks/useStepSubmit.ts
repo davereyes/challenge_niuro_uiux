@@ -5,6 +5,8 @@ import type { Result } from '@shared/types/result';
 import type { StepSubmission, StepSubmissionError } from '@application/dto/StepSubmission';
 import type { FieldErrors } from '@domain/errors/ValidationError';
 
+import { holdKeyboard, isHoldingKeyboard } from '@presentation/hooks/keyboardHandoff';
+
 import { destinationPath } from '../routing/paths';
 import { useApplyFlow } from '../state/useApplyFlow';
 
@@ -36,6 +38,9 @@ export const useStepSubmit = <Field extends string>(): StepSubmitState<Field> =>
 
   const submit = useCallback(
     async (run: () => Promise<Result<StepSubmission, StepSubmissionError<Field>>>) => {
+      // Keep the keyboard alive (iOS) while the next screen loads; restore focus if we stay here.
+      const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      holdKeyboard();
       setSubmitting(true);
       setNetworkError(false);
       slowTimer.current = window.setTimeout(() => setSlow(true), SLOW_AFTER_MS);
@@ -49,6 +54,7 @@ export const useStepSubmit = <Field extends string>(): StepSubmitState<Field> =>
         navigate(destinationPath(result.value.destination));
         return;
       }
+      if (isHoldingKeyboard()) previousFocus?.focus({ preventScroll: true });
       if (result.error.kind === 'network') setNetworkError(true);
       else setServerErrors(result.error.errors);
     },

@@ -130,6 +130,9 @@ Y agregarlo al barrel del nivel (`atoms/index.ts`, etc.).
 - El CTA de cada paso va **anclado al bottom y por encima del teclado** (`BottomActionBar`).
 - El CTA **siempre** lleva el back a la izquierda (`Button` con `showBackIcon`).
 - El `TopBar` del flujo **no** muestra back: solo título "Step N of 7", cerrar y stepper.
+- Al entrar a un paso se enfoca su **primer campo de texto** (teclado abierto). Pasos sin campos (opciones, mensajes)
+  enfocan el título y cierran el teclado. Toda navegación disparada por un tap llama `holdKeyboard()` antes de navegar
+  (`@presentation/hooks/keyboardHandoff`), para que iOS mantenga el teclado entre pantallas.
 
 ## Probar el flujo
 

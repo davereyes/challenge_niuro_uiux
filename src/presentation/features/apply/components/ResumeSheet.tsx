@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 
 import { Button, ConfirmSheet } from '@ds/mobile';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
 import { STEP_ORDER, stepNumber, TOTAL_STEPS } from '@domain/services/applyFlow';
 import type { StepId } from '@domain/entities/ApplicationDraft';
 
@@ -36,6 +37,7 @@ export const ResumeSheet = () => {
           <Button
             label="Continue application"
             onClick={() => {
+              holdKeyboard();
               dismissResumePrompt();
               navigate(stepPath(step));
             }}

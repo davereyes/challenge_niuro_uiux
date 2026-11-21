@@ -15,6 +15,7 @@ import {
 } from '@ds/mobile';
 import audienceGigWorkers from '@presentation/assets/images/audience-gig-workers.jpg';
 import heroImage from '@presentation/assets/images/hero-delivery.jpg';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
 
 import { APPLY_PATH } from '../../apply/routing/paths';
 import styles from './LandingPage.module.css';
@@ -66,7 +67,11 @@ export const LandingPage = () => {
           titleAccent="forward."
           subtitle="Get up to $10,000 with no credit check."
           ctaLabel="Get Your Advance"
-          onCta={() => navigate(APPLY_PATH)}
+          onCta={() => {
+            // Contact info opens with the phone field focused: keep the keyboard alive on iOS
+            holdKeyboard();
+            navigate(APPLY_PATH);
+          }}
           legal={
             <p className={styles.legal}>
               By continuing, you agree to our <TextLink tone="inverse" href="#terms">Terms</TextLink> and{' '}

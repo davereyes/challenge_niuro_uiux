@@ -5,6 +5,7 @@ import { MessageBlock, ScanIllustration, StatusChecklist, Text, type StatusCheck
 import type { ApplicantCheckOutcome } from '@application/use-cases/apply';
 import type { FlowDestination } from '@domain/services/applyFlow';
 import { useUseCases } from '@presentation/di';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
 
 import { ApplyStep } from '../components/ApplyStep';
 import { destinationPath } from '../routing/paths';
@@ -74,7 +75,10 @@ export const CheckingPage = () => {
   if (returning) {
     // 2F · Account found
     return (
-      <ApplyStep step="checking" stepLabel="" onContinue={() => navigate(destinationPath(returning.destination))}>
+      <ApplyStep step="checking" stepLabel="" onContinue={() => {
+          holdKeyboard();
+          navigate(destinationPath(returning.destination));
+        }}>
         <MessageBlock
           icon="check-circle"
           tone="success"

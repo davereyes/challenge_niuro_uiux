@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 
 import { Button, MessageBlock } from '@ds/mobile';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
 
 import { ApplyStep } from '../components/ApplyStep';
 import { LANDING_PATH, stepPath } from '../routing/paths';
@@ -16,7 +17,10 @@ export const NotEligiblePage = () => {
       step="income"
       actions={
         <>
-          <Button label="Change my answer" onClick={() => navigate(stepPath('income'))} />
+          <Button label="Change my answer" onClick={() => {
+            holdKeyboard();
+            navigate(stepPath('income'));
+          }} />
           <Button variant="tertiary" label="Explore other options" onClick={() => navigate(LANDING_PATH)} />
         </>
       }

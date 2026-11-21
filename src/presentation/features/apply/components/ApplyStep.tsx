@@ -1,7 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useNavigate } from 'react-router';
 
 import { Button, ConfirmSheet, InlineNotice, StepScreen } from '@ds/mobile';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
+import { useAutoFocusField } from '@presentation/hooks/useAutoFocusField';
 import type { StepId } from '@domain/entities/ApplicationDraft';
 import { previousStep, progressFor, stepNumber, TOTAL_STEPS } from '@domain/services/applyFlow';
 
@@ -33,7 +35,7 @@ export interface ApplyStepProps {
 /**
  * Apply Now screen shell (feature-level composition of the StepScreen template):
  * step label + progress (never decreases), Continue with back (project rule), leave confirmation (2C),
- * network banner + "Try again" (2I), "Still working…" (2H), and focus on the heading for screen readers.
+ * network banner + "Try again" (2I), "Still working…" (2H), and autofocus of the first field (keyboard open).
  */
 export const ApplyStep = ({
   step,
@@ -60,17 +62,13 @@ export const ApplyStep = ({
   const goBack =
     onBack ??
     (() => {
+      holdKeyboard();
       const previous = previousStep(draft, step);
       navigate(previous ? stepPath(previous) : LANDING_PATH);
     });
 
-  // Move focus to the screen title on arrival (route changes are silent for screen readers otherwise).
-  useEffect(() => {
-    const heading = document.querySelector<HTMLElement>('main h1');
-    if (!heading) return;
-    heading.setAttribute('tabindex', '-1');
-    heading.focus({ preventScroll: true });
-  }, []);
+  // Keyboard ready on arrival: focus the first text field (or the title when there is none).
+  useAutoFocusField();
 
   const cta =
     actions ??

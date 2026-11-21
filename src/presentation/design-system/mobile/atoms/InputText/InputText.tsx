@@ -111,6 +111,9 @@ export const InputText = ({
           type="button"
           className={styles.action}
           aria-label="Clear text"
+          // Out of the tab order: it only exists while the input is focused, so tabbing to it would
+          // blur the input, unmount the button and drop focus. Touch/mouse users tap it directly.
+          tabIndex={-1}
           onMouseDown={(event) => event.preventDefault()}
           onClick={clear}
         >

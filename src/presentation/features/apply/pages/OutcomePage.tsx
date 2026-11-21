@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 
 import { Button, MessageBlock } from '@ds/mobile';
 import type { StepId } from '@domain/entities/ApplicationDraft';
+import { holdKeyboard } from '@presentation/hooks/keyboardHandoff';
 
 import { ApplyStep } from '../components/ApplyStep';
 import { LANDING_PATH, stepPath } from '../routing/paths';
@@ -49,7 +50,10 @@ export const OutcomePage = ({ outcome }: { outcome: PendingOutcome }) => {
   const navigate = useNavigate();
   const copy = COPY[outcome];
   return (
-    <ApplyStep step={copy.step} actions={<Button label={copy.actionLabel} onClick={() => navigate(copy.actionTo)} />}>
+    <ApplyStep step={copy.step} actions={<Button label={copy.actionLabel} onClick={() => {
+            holdKeyboard();
+            navigate(copy.actionTo);
+          }} />}>
       <MessageBlock
         icon={outcome === 'bank' ? 'check-circle' : 'info'}
         tone={outcome === 'bank' ? 'success' : 'brand'}
