@@ -1,0 +1,14 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Desktop/Introduction" />
+
+# Desktop
+
+Plataforma **reservada**. Aún no se diseña ni desarrolla.
+
+Cuando se active:
+
+1. Crear componentes en `desktop/{atoms,molecules,organisms,templates}` con la misma estructura que mobile.
+2. Títulos de story: `Desktop/<Nivel>/<Componente>` y `...desktopStory` en el meta.
+3. Reutilizar los mismos tokens (`Foundations`). Si un componente es idéntico en ambas plataformas,
+   se promueve a un nivel compartido en vez de duplicarlo (ver `design-system/context.md`).

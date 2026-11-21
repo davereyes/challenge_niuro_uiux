@@ -1,0 +1,100 @@
+.text {
+  margin: 0;
+}
+
+.display {
+  font-size: var(--font-size-40);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-44);
+  letter-spacing: var(--letter-spacing-tightest);
+}
+
+.title {
+  font-size: var(--font-size-28);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-34);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.heading {
+  font-size: var(--font-size-22);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-28);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.section {
+  font-size: var(--font-size-28);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-34);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.stat {
+  font-size: var(--font-size-34);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-40);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+.headline {
+  font-size: var(--font-size-17);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-22);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.lead {
+  font-size: var(--font-size-19);
+  line-height: var(--line-height-27);
+}
+
+.body {
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-24);
+}
+
+.bodySmall {
+  font-size: var(--font-size-15);
+  line-height: var(--line-height-22);
+}
+
+.callout {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+}
+
+.caption {
+  font-size: var(--font-size-13);
+  line-height: var(--line-height-18);
+}
+
+.micro {
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-18);
+}
+
+.tone-primary { color: var(--color-text-primary); }
+.tone-secondary { color: var(--color-text-secondary); }
+.tone-muted { color: var(--color-text-muted); }
+.tone-brand { color: var(--color-text-brand); }
+.tone-accent { color: var(--color-text-accent); }
+.tone-danger { color: var(--color-text-danger); }
+.tone-inverse { color: var(--color-text-inverse); }
+.tone-inverseMuted { color: var(--color-text-inverse-muted); }
+.tone-inherit { color: inherit; }
+
+.align-start { text-align: start; }
+.align-center { text-align: center; }
+.align-end { text-align: end; }
+
+.weight-regular { font-weight: var(--font-weight-regular); }
+.weight-medium { font-weight: var(--font-weight-medium); }
+.weight-semibold { font-weight: var(--font-weight-semibold); }
+.weight-bold { font-weight: var(--font-weight-bold); }
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

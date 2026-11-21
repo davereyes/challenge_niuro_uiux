@@ -1,0 +1,113 @@
+/*
+ * SEMANTIC TOKENS — what components consume. Design intent -> primitive.
+ * Names in comments match the canvas tokens (color.brand.primary, …).
+ */
+:root {
+  color-scheme: light;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Surfaces */
+  --color-bg-canvas: var(--color-white); /* screens are white in the canvas */
+  --color-bg-page: var(--color-gray-25); /* color.background */
+  --color-bg-surface: var(--color-white); /* color.surface */
+  --color-bg-subtle: var(--color-gray-50); /* color.input.filled — inputs, cards, icon buttons */
+  --color-bg-disabled: var(--color-gray-150); /* color.disabled.bg */
+  --color-bg-inverse: var(--color-ink-950); /* footer */
+  --color-bg-brand: var(--color-navy-500);
+  --color-bg-brand-subtle: var(--color-navy-50);
+  --color-bg-overlay: rgb(10 10 10 / 0.4);
+
+  /* Text */
+  --color-text-primary: var(--color-gray-900); /* color.text.primary */
+  --color-text-secondary: var(--color-gray-700); /* color.text.secondary */
+  --color-text-muted: var(--color-gray-550); /* color.text.muted */
+  --color-text-tertiary: var(--color-gray-550);
+  /* #6A7282 on #F4F5F7 is 4.43:1 (fails WCAG AA). Darker muted for text on filled surfaces: 4.91:1 */
+  --color-text-muted-on-subtle: #636b7b;
+  --color-text-disabled: var(--color-gray-400); /* color.disabled.text */
+  --color-text-placeholder: var(--color-gray-350);
+  --color-text-wheel-disabled: var(--color-gray-250); /* unavailable wheel values */
+  --color-text-inverse: var(--color-white);
+  --color-text-inverse-muted: rgb(255 255 255 / 0.72);
+  --color-text-brand: var(--color-navy-500);
+  --color-text-accent: var(--color-cyan-500); /* color.brand.accent */
+  --color-text-danger: var(--color-red-500);
+  --color-text-success: var(--color-green-500);
+  --color-text-link: var(--color-navy-500);
+
+  /* Floating label (InputText) */
+  --color-label-resting: var(--color-gray-500);
+  --color-label-floating: var(--color-gray-600);
+
+  /* Borders */
+  --color-border-default: var(--color-gray-200); /* color.border */
+  --color-border-subtle: var(--color-gray-75); /* anchored action bar top line */
+  --color-border-strong: var(--color-gray-400);
+  --color-border-focus: var(--color-navy-500); /* color.focus */
+  --color-border-danger: var(--color-red-500);
+  --color-border-selected: var(--color-cyan-500); /* option card selected ring */
+
+  /* Actions — Button */
+  --color-action-primary-bg: var(--color-navy-500);
+  --color-action-primary-bg-hover: var(--color-navy-600);
+  --color-action-primary-bg-active: var(--color-navy-700);
+  --color-action-primary-fg: var(--color-white);
+
+  --color-action-secondary-bg: transparent;
+  --color-action-secondary-bg-hover: var(--color-navy-50);
+  --color-action-secondary-bg-active: var(--color-navy-50);
+  --color-action-secondary-fg: var(--color-navy-500);
+  --color-action-secondary-border: var(--color-navy-500);
+
+  --color-action-tertiary-bg: transparent;
+  --color-action-tertiary-bg-hover: var(--color-gray-50);
+  --color-action-tertiary-bg-active: var(--color-gray-75);
+  --color-action-tertiary-fg: var(--color-navy-500);
+
+  --color-action-inverse-bg: var(--color-white);
+  --color-action-inverse-fg: var(--color-navy-500);
+
+  --color-action-destructive-bg: var(--color-red-500); /* proposed in 2C */
+  --color-action-destructive-bg-hover: var(--color-red-600);
+  --color-action-destructive-fg: var(--color-white);
+
+  --color-action-disabled-bg: var(--color-gray-150);
+  --color-action-disabled-fg: var(--color-gray-400);
+  --color-action-disabled-outline-fg: var(--color-gray-300);
+
+  /* Selection controls */
+  --color-control-border: var(--color-gray-400);
+  --color-control-checked: var(--color-navy-500); /* checkbox */
+  --color-control-selected: var(--color-cyan-500); /* radio dot in option cards */
+
+  /* Feedback */
+  --color-feedback-danger-fg: var(--color-red-500);
+  --color-feedback-danger-bg: var(--color-red-50);
+  --color-feedback-success-bg: var(--color-green-50);
+  --color-feedback-success-fg: var(--color-green-400);
+  --color-progress-track: var(--color-gray-100);
+  --color-progress-fill: var(--color-navy-500);
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgb(10 10 10 / 0.08);
+  --shadow-md: 0 8px 24px rgb(10 10 10 / 0.1); /* suggestions list */
+  --shadow-lg: 0 12px 40px rgb(10 10 10 / 0.25); /* bottom sheet */
+  --shadow-fab: 0 6px 16px rgb(10 10 10 / 0.2);
+
+  /* Focus (inputs: 1.5px border + 0.5px ring, as in the canvas) */
+  --focus-border-width: 1.5px;
+  --focus-ring: 0 0 0 0.5px var(--color-border-focus);
+  --focus-outline: 2px solid var(--color-border-focus);
+  --focus-outline-offset: 2px;
+
+  /* Layout — mobile */
+  --touch-target-min: 2.75rem; /* 44px */
+  --mobile-gutter: var(--space-6); /* 24px page padding */
+  --mobile-top-bar-height: var(--space-14); /* 56px */
+  --mobile-section-gap: var(--space-6);
+  --control-height: var(--space-14); /* 56px inputs */
+  --button-height: var(--space-12); /* 48px */
+}

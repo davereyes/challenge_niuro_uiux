@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Design System — Fundo (Niuro challenge)
+
+Este Storybook **es** el Atomic Design del proyecto y la fuente de verdad de la UI.
+Ningún componente visual se usa en la app si no existe (y está documentado) aquí.
+
+## Estructura
+
+| Sección | Contenido |
+| --- | --- |
+| **Foundations** | Tokens: color, tipografía, espaciado, radios. Compartidos por todas las plataformas. |
+| **Mobile** | Atoms → Molecules → Organisms → Templates. Plataforma activa. |
+| **Desktop** | Misma jerarquía. Reservado para escalar; aún sin componentes. |
+
+> Los *Pages* del Atomic Design no viven aquí: son las pantallas de `src/presentation/features/*`,
+> que llenan un Template con datos reales obtenidos de los casos de uso.
+
+## Variantes vs. controles
+
+- **Story = variante visual real** (ej. `Button` → Primary / Secondary / Tertiary).
+- **Control = modificador o estado** que cualquier variante puede tener
+  (ej. `showBackIcon`, `loading`, `disabled`, `size`, `fullWidth`). No se crea una story por cada combinación.
+
+## Fuente del diseño
+
+Canvas **"App Mobile — Canvas"** en Claude Design (páginas *Mainflow* y *Design System*).
+Tokens, íconos y assets ya vienen del canvas. Los componentes se alinean al canvas por fases
+(ver `docs/plan/apply-now.md`).
+
+Copy de UI en **inglés** (producto para EE. UU.), igual que en el diseño.

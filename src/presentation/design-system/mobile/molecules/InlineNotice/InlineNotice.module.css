@@ -1,0 +1,70 @@
+.notice {
+  display: flex;
+  align-items: flex-start;
+}
+
+.text {
+  margin: 0;
+}
+
+.title {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* info — boxed, brand icon (1H) */
+.info {
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-subtle);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+  color: var(--color-text-secondary);
+}
+
+.info .icon {
+  color: var(--color-text-brand);
+}
+
+/* hint — plain, small, muted (1D) */
+.hint {
+  gap: var(--space-2);
+  font-size: var(--font-size-13);
+  line-height: var(--line-height-18);
+  color: var(--color-text-muted);
+}
+
+.hint .icon {
+  margin-top: 1px;
+}
+
+.hint .title {
+  color: var(--color-text-secondary);
+}
+
+/* secure — plain, regular icon, secondary text (1I) */
+.secure {
+  gap: var(--space-2);
+  font-size: var(--font-size-13);
+  line-height: var(--line-height-18);
+  color: var(--color-text-secondary);
+}
+
+.secure .icon {
+  color: var(--color-text-muted);
+}
+
+/* error — red banner (2I) */
+.error {
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-feedback-danger-bg);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+  color: var(--color-text-primary);
+}
+
+.error .icon {
+  color: var(--color-feedback-danger-fg);
+}

@@ -1,0 +1,14 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.page {
+  align-items: flex-start;
+}
+
+.sheet {
+  align-items: center;
+  text-align: center;
+}

@@ -1,0 +1,40 @@
+.spinner {
+  display: inline-block;
+  flex-shrink: 0;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: var(--radius-full);
+  animation: spin 800ms linear infinite;
+}
+
+.brand {
+  border-color: var(--color-border-default);
+  border-top-color: var(--color-progress-fill);
+}
+
+.current {
+  border-color: color-mix(in srgb, currentColor 25%, transparent);
+  border-top-color: currentColor;
+}
+
+.sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lg {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 2.5px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc",
+    "import",
+    "jsx-a11y",
+    "unicorn"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "env": {
+    "browser": true,
+    "es2024": true
+  },
+  "ignorePatterns": [
+    "dist",
+    "storybook-static",
+    "coverage",
+    "node_modules"
+  ],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "import/no-cycle": "error",
+    "import/no-default-export": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": [
+          "**/*.css"
+        ]
+      }
+    ],
+    "jsx-a11y/prefer-tag-over-role": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.tsx",
+        ".storybook/**",
+        "vite.config.ts",
+        "src/main.tsx",
+        "**/*.d.ts"
+      ],
+      "rules": {
+        "import/no-default-export": "off",
+        "react/only-export-components": "off"
+      }
+    },
+    {
+      "files": [
+        "src/domain/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@application/**",
+                  "@infrastructure/**",
+                  "@presentation/**",
+                  "@ds/**",
+                  "@app/**",
+                  "react",
+                  "react-dom",
+                  "react/*",
+                  "**/application/**",
+                  "**/infrastructure/**",
+                  "**/presentation/**",
+                  "**/app/**"
+                ],
+                "message": "Clean Architecture: domain is the innermost layer. It may only import from @domain and @shared."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/application/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@infrastructure/**",
+                  "@presentation/**",
+                  "@ds/**",
+                  "@app/**",
+                  "react",
+                  "react-dom",
+                  "react/*",
+                  "**/infrastructure/**",
+                  "**/presentation/**",
+                  "**/app/**"
+                ],
+                "message": "Clean Architecture: application may only import from @domain and @shared. Depend on ports (interfaces), not adapters."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/infrastructure/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@presentation/**",
+                  "@ds/**",
+                  "@app/**",
+                  "**/presentation/**",
+                  "**/app/**"
+                ],
+                "message": "Clean Architecture: infrastructure implements domain/application ports. It must not know about UI or the composition root."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/presentation/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@infrastructure/**",
+                  "**/infrastructure/**"
+                ],
+                "message": "Clean Architecture: presentation never imports adapters. Get use cases with useUseCases() (@presentation/di)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/presentation/design-system/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@domain/**",
+                  "@application/**",
+                  "@infrastructure/**",
+                  "@app/**",
+                  "@presentation/features/**",
+                  "**/domain/**",
+                  "**/application/**",
+                  "**/infrastructure/**",
+                  "**/features/**"
+                ],
+                "message": "Design system components are pure UI: no business logic, no use cases, no feature imports. Pass data via props."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/shared/**"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@domain/**",
+                  "@application/**",
+                  "@infrastructure/**",
+                  "@presentation/**",
+                  "@ds/**",
+                  "@app/**",
+                  "react",
+                  "react/*"
+                ],
+                "message": "shared/ is framework-agnostic utilities only and depends on nothing in the app."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.iconButton {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-primary);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.md {
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+}
+
+.lg {
+  width: var(--button-height);
+  height: var(--button-height);
+}
+
+.circle {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-subtle);
+  transition: background-color var(--duration-base) var(--easing-standard);
+}
+
+.md .circle {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.lg .circle {
+  width: var(--button-height);
+  height: var(--button-height);
+}
+
+.iconButton:hover:not(:disabled) .circle {
+  background: var(--color-action-tertiary-bg-active);
+}
+
+.iconButton:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.iconButton:disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}

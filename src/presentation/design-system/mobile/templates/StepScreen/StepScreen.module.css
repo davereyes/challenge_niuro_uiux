@@ -1,0 +1,25 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--color-bg-canvas);
+}
+
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+}
+
+.content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  gap: var(--mobile-section-gap);
+  padding: var(--space-6) var(--mobile-gutter) var(--space-10);
+}
+
+/* Reserve room for the anchored CTA bar */
+.withActions .content {
+  padding-bottom: calc(var(--bottom-bar-height, 7.375rem) + var(--space-6));
+}

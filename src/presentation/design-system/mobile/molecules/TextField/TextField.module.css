@@ -1,0 +1,9 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message {
+  margin: var(--space-1-5) 0 0 var(--space-4);
+}

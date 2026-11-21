@@ -1,0 +1,18 @@
+.fab {
+  position: fixed;
+  right: var(--space-4);
+  bottom: calc(var(--bottom-bar-height, 0px) + var(--space-4));
+  z-index: 10;
+  touch-action: none;
+  user-select: none;
+  transition:
+    left 350ms cubic-bezier(0.2, 1.2, 0.4, 1),
+    top 350ms cubic-bezier(0.2, 1.2, 0.4, 1),
+    transform var(--duration-base) var(--easing-standard);
+}
+
+.dragging {
+  transform: scale(1.08);
+  transition: transform var(--duration-base) var(--easing-standard);
+  cursor: grabbing;
+}

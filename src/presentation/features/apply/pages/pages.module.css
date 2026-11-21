@@ -1,0 +1,42 @@
+.consents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Aligned with the checkbox labels (24px box + 12px gap) */
+.smsLegal {
+  margin: var(--space-1) 0 0 var(--space-9);
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7.5rem;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.stateNotice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: calc(var(--space-2) * -1) 0 0 var(--space-4);
+}
+
+.combobox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}

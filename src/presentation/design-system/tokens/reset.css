@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Focused fields scroll into view clear of the sticky top bar and the anchored CTA bar */
+  scroll-padding-top: 4.5rem;
+  scroll-padding-bottom: calc(var(--bottom-bar-height, 0px) + var(--space-4));
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-24);
+  color: var(--color-text-primary);
+  background: var(--color-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Programmatic focus targets (screen titles on route change) don't need a visible ring */
+[tabindex='-1']:focus {
+  outline: none;
+}

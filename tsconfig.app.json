@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "allowArbitraryExtensions": true,
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Clean Architecture layer aliases (mirror them in vite.config.ts) */
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@domain/*": ["./src/domain/*"],
+      "@application/*": ["./src/application/*"],
+      "@infrastructure/*": ["./src/infrastructure/*"],
+      "@presentation/*": ["./src/presentation/*"],
+      "@ds/*": ["./src/presentation/design-system/*"],
+      "@shared/*": ["./src/shared/*"]
+    }
+  },
+  "include": ["src", ".storybook", "vitest.shims.d.ts"]
+}

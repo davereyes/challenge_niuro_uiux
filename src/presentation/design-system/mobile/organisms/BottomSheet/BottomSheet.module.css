@@ -1,0 +1,69 @@
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.dialog::backdrop {
+  background: var(--color-bg-overlay);
+  animation: fade 220ms ease both;
+}
+
+.panel {
+  position: absolute;
+  right: var(--space-2);
+  bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  left: var(--space-2);
+  max-height: calc(100% - var(--space-12));
+  overflow: auto;
+  border-radius: var(--radius-3xl);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-lg);
+  animation: sheet-up var(--duration-sheet) var(--easing-emphasized) both;
+}
+
+.dragging {
+  animation: none;
+  transition: none;
+}
+
+.handleArea {
+  padding-top: var(--space-2);
+  touch-action: none;
+  cursor: grab;
+}
+
+.grabber {
+  width: 2.25rem;
+  height: 5px;
+  margin: 0 auto;
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(110%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}

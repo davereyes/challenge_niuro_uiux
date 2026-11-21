@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import logoBrand from '../assets/brand/logo-brand.svg';
+import logoWhite from '../assets/brand/logo-white.svg';
+import bbb from '../assets/badges/bbb-accredited.png';
+import godaddy from '../assets/badges/godaddy-verified.png';
+
+<Meta title="Foundations/Brand assets" />
+
+# Brand assets
+
+Exportados del canvas de Claude Design. Viven en `design-system/assets/`.
+
+## Logo (Fundo)
+
+<div style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+  <div style={{ padding: '24px', border: '1px solid var(--color-border-default)', borderRadius: '16px' }}>
+    <img src={logoBrand} alt="Fundo logo, brand" style={{ height: '40px' }} />
+  </div>
+  <div style={{ padding: '24px', background: 'var(--color-bg-inverse)', borderRadius: '16px' }}>
+    <img src={logoWhite} alt="Fundo logo, white" style={{ height: '40px' }} />
+  </div>
+</div>
+
+Tamaños del átomo `Logo`: sm 24px · md 32px · lg 40px.
+
+## Trust badges (footer)
+
+<div style={{ display: 'flex', gap: '12px', padding: '24px', background: 'var(--color-bg-inverse)', borderRadius: '16px', width: 'fit-content' }}>
+  <img src={bbb} alt="BBB Accredited Business" style={{ height: '40px' }} />
+  <img src={godaddy} alt="GoDaddy Verified and Secured" style={{ height: '40px' }} />
+</div>

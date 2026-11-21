@@ -1,0 +1,73 @@
+.checkbox {
+  position: relative;
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 44×44 invisible hit area centered on the 24px box */
+.input {
+  position: absolute;
+  top: -0.625rem;
+  left: -0.625rem;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.5px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-text-inverse);
+  pointer-events: none;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
+}
+
+.check {
+  width: 0.875rem;
+  height: 0.875rem;
+  opacity: 0;
+}
+
+.input:checked + .box {
+  border-color: var(--color-control-checked);
+  background: var(--color-control-checked);
+}
+
+.input:checked + .box .check {
+  opacity: 1;
+}
+
+.invalid {
+  border: 2px solid var(--color-border-danger);
+}
+
+.input:focus-visible + .box {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input:disabled + .box {
+  border-color: var(--color-bg-disabled);
+  background: var(--color-bg-page);
+  color: var(--color-text-disabled);
+}
+
+.input:disabled:checked + .box {
+  background: var(--color-bg-disabled);
+}

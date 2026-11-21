@@ -1,0 +1,22 @@
+.fab {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-brand);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-fab);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fab:hover {
+  background: var(--color-action-primary-bg-hover);
+}
+
+.fab:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}

@@ -1,0 +1,8 @@
+.logo {
+  display: block;
+  width: auto;
+}
+
+.sm { height: 1.5rem; }
+.md { height: 2rem; }
+.lg { height: 2.5rem; }

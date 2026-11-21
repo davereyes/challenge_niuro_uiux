@@ -1,0 +1,30 @@
+.circle {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semibold);
+}
+
+.md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.lg .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.surface { background: var(--color-bg-surface); color: var(--color-text-secondary); }
+.brand { background: var(--color-bg-brand-subtle); color: var(--color-text-brand); }
+.danger { background: var(--color-feedback-danger-bg); color: var(--color-feedback-danger-fg); }
+.success { background: var(--color-feedback-success-bg); color: var(--color-feedback-success-fg); }
+.onBrand { background: rgb(255 255 255 / 0.16); color: var(--color-text-inverse); }
+.onImage { background: rgb(255 255 255 / 0.18); color: var(--color-text-inverse); }

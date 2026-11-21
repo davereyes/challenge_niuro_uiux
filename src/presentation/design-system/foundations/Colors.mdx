@@ -1,0 +1,20 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/addon-docs/blocks';
+
+import { COLOR_TOKENS } from '../tokens/tokens';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Tokens **semánticos** (los que consumen los componentes). Valores en `tokens/semantic.css`.
+
+<ColorPalette>
+  {Object.entries(COLOR_TOKENS).map(([group, tokens]) => (
+    <ColorItem
+      key={group}
+      title={group}
+      subtitle="semantic"
+      colors={Object.fromEntries(tokens.map((token) => [token.replace('--color-', ''), `var(${token})`]))}
+    />
+  ))}
+</ColorPalette>

@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import { TYPE_SCALE } from '../tokens/tokens';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Fuente del sistema (`-apple-system, BlinkMacSystemFont, system-ui`), como en el canvas.
+Escala en `tokens/primitives.css`. En componentes úsala a través del átomo `Text`.
+
+<div style={{ display: 'grid', gap: '20px', fontFamily: 'var(--font-family-base)' }}>
+  {TYPE_SCALE.map((t) => (
+    <div key={t.name} style={{ display: 'grid', gap: '4px' }}>
+      <code style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+        {t.name} · {t.size} / {t.lineHeight} · {t.weight} — {t.usage}
+      </code>
+      <span style={{ fontSize: `var(${t.size})`, lineHeight: `var(${t.lineHeight})`, fontWeight: t.weight, color: 'var(--color-text-primary)' }}>
+        Get the support to move forward.
+      </span>
+    </div>
+  ))}
+</div>

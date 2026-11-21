@@ -1,0 +1,48 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition:
+    opacity var(--duration-slow) var(--easing-standard),
+    transform var(--duration-slow) var(--easing-standard);
+}
+
+.pending {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.indicator {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.check {
+  color: var(--color-feedback-success-fg);
+  animation: pop var(--duration-slow) ease-out;
+}
+
+.label {
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-22);
+  color: var(--color-text-secondary);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
